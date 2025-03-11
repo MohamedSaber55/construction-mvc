@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة المقاولات</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4A90E2;
+            border-radius: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+    <div class="container mx-auto p-6">
+        <!-- Header Section -->
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-3xl font-extrabold text-blue-700">📋 سجل المقاولات</h2>
+            <a href="/add"
+                class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition flex items-center">
+                ➕ إضافة بيانات جديدة
+            </a>
+        </div>
+
+        <!-- Table Container -->
+        <div class="overflow-x-auto bg-white shadow-lg rounded-xl p-4 border border-gray-200">
+            <table class="w-full border-collapse">
+                <thead class="bg-blue-600 text-white text-lg">
+                    <tr>
+                        <th class="p-3">المكان</th>
+                        <th class="p-3">عدد الطوب الأحمر</th>
+                        <th class="p-3">عدد الطوب المصمط</th>
+                        <th class="p-3">إجمالي الطوب</th>
+                        <th class="p-3">المبلغ المستلم</th>
+                        <th class="p-3">تاريخ الاستلام</th>
+                        <th class="p-3">الإجراءات</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <% data.forEach(item=> { %>
+                        <tr class="odd:bg-gray-100 even:bg-white hover:bg-blue-50 transition">
+                            <td class="border border-gray-300 p-3 font-medium">
+                                <%= item.place %>
+                            </td>
+                            <td class="border border-gray-300 p-3">
+                                <%= item.redBricks %>
+                            </td>
+                            <td class="border border-gray-300 p-3">
+                                <%= item.solidBricks %>
+                            </td>
+                            <td class="border border-gray-300 p-3 font-bold text-blue-700">
+                                <%= item.totalBricks %>
+                            </td>
+                            <td class="border border-gray-300 p-3 text-green-600 font-semibold">
+                                <%= item.receivedAmount %> ج.م
+                            </td>
+                            <td class="border border-gray-300 p-3 text-gray-500">
+                                <%= item.receivedDate?.toDateString() %>
+                            </td>
+                            <td class="border border-gray-300 p-3 flex justify-center gap-2">
+                                <a href="/edit/<%= item._id %>"
+                                    class="bg-yellow-500 text-white px-3 py-2 rounded-md text-sm shadow hover:bg-yellow-600 transition">
+                                    ✏️ تعديل
+                                </a>
+                                <form action="/delete/<%= item._id %>" method="POST"
+                                    onsubmit="return confirm('هل أنت متأكد من الحذف؟');">
+                                    <button type="submit"
+                                        class="bg-red-600 text-white px-3 py-2 rounded-md text-sm shadow hover:bg-red-700 transition">
+                                        🗑️ حذف
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="text-center mt-8">
+            <p class="text-gray-500">📌 جميع الحقوق محفوظة  ثابت البنا &copy; 2025 </p>
+        </div>
+    </div>
+</body>
+
+</html>

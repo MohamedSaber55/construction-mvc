@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة بيانات جديدة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-900 flex items-center justify-center min-h-screen">
+    <div class="bg-white shadow-lg rounded-xl p-8 w-full max-w-lg border border-gray-200">
+        <!-- Title -->
+        <h2 class="text-2xl font-extrabold text-blue-700 text-center mb-6">📝 إضافة بيانات جديدة</h2>
+
+        <!-- Form -->
+        <form action="/add" method="POST" class="space-y-4">
+            <!-- المكان -->
+            <div>
+                <label class="block text-gray-700 font-semibold">📍 المكان:</label>
+                <input type="text" name="place" required
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- عدد الطوب الأحمر -->
+            <div>
+                <label class="block text-gray-700 font-semibold">🧱 عدد الطوب الأحمر:</label>
+                <input type="number" name="redBricks" required
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- عدد الطوب المصمط -->
+            <div>
+                <label class="block text-gray-700 font-semibold">🏗️ عدد الطوب المصمط:</label>
+                <input type="number" name="solidBricks" required
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- المبلغ المستلم -->
+            <div>
+                <label class="block text-gray-700 font-semibold">💰 المبلغ المستلم:</label>
+                <input type="number" name="receivedAmount" required
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+
+            <!-- تاريخ الاستلام -->
+            <div>
+                <label class="block text-gray-700 font-semibold">📅 تاريخ الاستلام:</label>
+                <input type="date" name="receivedDate"
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit"
+                    class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition w-full font-semibold">
+                    ➕ إضافة البيانات
+                </button>
+            </div>
+        </form>
+
+        <!-- Back Link -->
+        <div class="text-center mt-4">
+            <a href="/" class="text-gray-600 hover:text-gray-800 transition">🔙 العودة إلى السجل</a>
+        </div>
+    </div>
+</body>
+
+</html>
