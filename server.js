@@ -15,6 +15,7 @@ connectDB();
 app.use(cors());
 app.use(json());
 app.use(urlencoded({ extended: true }));
+app.use(express.static("views"));
 
 // View Engine (if using EJS templates)
 app.set("view engine", "ejs");
